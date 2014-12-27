@@ -4,12 +4,6 @@
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     </head>
     <body ng-app='app'>
-    <script>
-        var app = angular.module('app',[])
-        app.controller('PostCtrl', function($scope) {$scope.posts =[{username: 'dickyxxx',body: 'Node rules!'},{username: 'jeffdickey', body:'trying out angular.js....'}
-        ]
-        })
-    </script>
         <div class='container'>
             <h1>Recent Posts</h1>
             <div ng-controller='PostCtrl'>
@@ -27,5 +21,21 @@
             </ul>
         </div>
         <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js'></script>
+        <script>
+            var app = angular.module('app',[])
+            app.controller('PostCtrl', function($scope) {
+                $scope.posts =[
+                    {
+                        username: 'dickyxxx',
+                        body: 'Node rules!'
+                        
+                    },
+                    {
+                        username: 'jeffdickey',
+                        body:'trying out angular.js....'
+                    }
+                ]
+            })
+        </script>
     </body>
 </html>
