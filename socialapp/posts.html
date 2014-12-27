@@ -3,7 +3,11 @@
     <head>
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     </head>
-    <body>
+    <body ng-app='app'>
+    <script>
+        var app = angular.module('app',[])
+        app.controller('PostCtrl', function($scope) {$scope.posts =[]})
+    </script>
         <div class='container'>
             <h1>Recent Posts</h1>
             <ul class='list-group'>
@@ -17,5 +21,6 @@
                 </li>
             </ul>
         </div>
+        <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js'></script>
     </body>
 </html>
