@@ -20,6 +20,6 @@ app.listen(3000, function () {
 app.post('/api/posts', function (req, res) {
     console.log('post received!')
     console.log(req.body.username)
-    console.console.log(req.body.body)
+    console.log(req.body.body)
     res.send(201)
 })
