@@ -17,7 +17,7 @@ app.listen(3000, function () {
     console.log('Server listening on', 3000)
 })
 
-var Post = require('./model/post')
+var Post = require('./models/post')
 
 app.post('/api/posts', function (req, res, next) {
     var post = new Post({
