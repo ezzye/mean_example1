@@ -29,11 +29,13 @@
         app.controller('PostCtrl', function($scope, $http) {
             $scope.addPost = function () {
                 if ($scope.postBody) {
-                    $scope.posts.unshift({
+                    $http.post('/api/posts', {
                         username: 'dickeyxxx',
                         body: $scope.postBody
+                    }).success(function (post) {
+                        $scope.posts.unshift(post)
+                        $scope.postBody = null
                     })
-                    $scope.postBody = null
                 }
             }
             $http.get('http://localhost:3000/api/posts')
