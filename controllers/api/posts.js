@@ -21,3 +21,5 @@ router.post('/api/posts', function (req, res, next) {
         res.json(201, post)
     })
 })
+
+module.exports = router
