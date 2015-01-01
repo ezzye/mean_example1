@@ -4,12 +4,15 @@ app.service('PostsSvc', function ($http) {
     this.fetch = function () {
         return $http.get('api/posts')
     }
+    this.create = function (post) {
+        return $http.post('/api/posts', post)
+    }
 })
 
 app.controller('PostCtrl', function($scope, PostsSvc) {
     $scope.addPost = function() {
         if ($scope.postBody) {
-            $http.post('/api/posts', {
+            PostsSvc.create({
                 username: 'dickeyxxx',
                 body: $scope.postBody
             }).success(function(post) {
@@ -18,6 +21,7 @@ app.controller('PostCtrl', function($scope, PostsSvc) {
             })
         }
     }
+    
     PostsSvc.fetch()
     .success(function(posts) {
         $scope.posts = posts
