@@ -1,5 +1,12 @@
 var app = angular.module('app', [])
-app.controller('PostCtrl', function($scope, $http) {
+
+app.service('PostsSvc', function ($http) {
+    this.fetch = function () {
+        return $http.get('api/posts')
+    }
+})
+
+app.controller('PostCtrl', function($scope, PostsSvc) {
     $scope.addPost = function() {
         if ($scope.postBody) {
             $http.post('/api/posts', {
@@ -11,8 +18,8 @@ app.controller('PostCtrl', function($scope, $http) {
             })
         }
     }
-    $http.get('/api/posts')
-        .success(function(posts) {
+    PostsSvc.fetch()
+    .success(function(posts) {
         $scope.posts = posts
     })
 })
