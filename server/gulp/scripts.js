@@ -8,6 +8,10 @@ var uglify = require('gulp-uglify')
 
 var ngAnnotate = require('gulp-ng-annotate')
 
+gulp.task('watch:js', ['js'], function () {
+    gulp.watch('ng/**/*.js', ['js'])
+})
+
 gulp.task('js', function () {
     gulp.src(['ng/module.js','ng/**/*.js'])
     .pipe(sourcemaps.init())
