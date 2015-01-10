@@ -1,0 +1,6 @@
+{
+  "name": "authapp",
+  "dependencies": {
+    "jwt-simple": "^0.2.0"
+  }
+}
