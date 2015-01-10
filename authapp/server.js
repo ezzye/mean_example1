@@ -11,7 +11,7 @@ function findUserByUsername(username) {
     return _.find(users, {username: username})
 }
 
-function validateUser (userassword) {
+function validateUser (user,password) {
     return user.password === password
 }
 
