@@ -1,6 +1,7 @@
 var express = require('express')
 var jwt = require('jwt-simple')
 var bcrypt = require('bcryptjs')
+var User = require('./user')
 var _ = require('lodash')
 var app = express()
 app.use(require('body-parser').json())
@@ -32,6 +33,17 @@ app.get('/user', function (req, res) {
     var user = jwt.decode(token, secretKey)
     // TODO: pull user info from database
     res.json(user)
+})
+
+app.post('/user', function (req,res,next) {
+    var user = new User({username: req.body.username})
+    bcrypt.hash(req.body.password,10, function (err, hash) {
+        user.password = hash
+        user.save(function (err, user) {
+            if (err) { throw next(err)}
+            res.send(201)
+        })
+    })
 })
 
 app.listen(3000)
