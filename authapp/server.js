@@ -17,22 +17,26 @@ function validateUser (user,password, cb) {
     bcrypt.compare(password, user.password, cb)
 }
 
-app.post('/session', function (req, res) {
-    var user = findUserByUsername(req.body.username)
-    validateUser(user, req.body.password, function (err, valid) {
-        if (err || !valid) {
-            return res.send(401)
-        }
-        var token = jwt.encode({username: user.username}, secretKey)
-        res.json(token)
+app.post('/session', function (req, res, next) {
+    
+    User.findOne({username: req.body.username}, function (err, user) {
+      if (err) { return next(err) }  
+      if (!user) { return res.send(401)}
+      bcrypt.compare(req.body.password, user.password, function (err,valid) {
+          if (err) { return next(err)}
+          if (!valid) { return res.send(401)}
+          var token = jwt.encode({username: user.username}, secretKey)
+          res.json(token)
+      })
     })
 })
 
 app.get('/user', function (req, res) {
     var token = req.headers['x-auth']
-    var user = jwt.decode(token, secretKey)
-    // TODO: pull user info from database
-    res.json(user)
+    var auth = jwt.decode(token, secretKey)
+    User.findOne({username: auth.username}, function (err, user) {
+        res.json(user)
+    })
 })
 
 app.post('/user', function (req,res,next) {
