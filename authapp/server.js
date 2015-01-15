@@ -6,20 +6,12 @@ var _ = require('lodash')
 var app = express()
 app.use(require('body-parser').json())
 
-var users = [{username:'dickeyxxx', password: '$2a$10$Jmo/n32ofSM9JvzfH0z6Me6TMyn6C/U9JhzDG8xhQC4ExHMG1jXz2'}]
 var secretKey = 'supersecretkey'
 
-function findUserByUsername(username) {
-    return _.find(users, {username: username})
-}
-
-function validateUser (user,password, cb) {
-    bcrypt.compare(password, user.password, cb)
-}
-
 app.post('/session', function (req, res, next) {
-    
-    User.findOne({username: req.body.username}, function (err, user) {
+    User.findOne({username: req.body.username})
+    .select('password')
+    .exec(function (err, user) {
       if (err) { return next(err) }  
       if (!user) { return res.send(401)}
       bcrypt.compare(req.body.password, user.password, function (err,valid) {
