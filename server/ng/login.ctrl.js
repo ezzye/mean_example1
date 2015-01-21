@@ -4,6 +4,7 @@ angular.module('app')
         UserSvc.login(username, password)
         .then(function (user) {
             console.log(user)
+            console.log('Password found in login.ctrl.js')
         })
     }
 })
