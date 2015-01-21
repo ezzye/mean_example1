@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 
 router.get('/', function (req, res) {
-    res.sendFile('layouts/app.html')
+    res.sendFile(__dirname+'layouts/app.html')
 })
 
 router.use(express.static(__dirname + '/../assets'))
