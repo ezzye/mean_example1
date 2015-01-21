@@ -1,5 +1,6 @@
 angular.module('app')
 .controller('LoginCtrl', function ($scope, UserSvc) {
+    console.log('login service called vvvvvvvvvvvvvvvvvvvvvvvvv')
     $scope.login = function (username, password) {
         UserSvc.login(username, password)
         .then(function (user) {
