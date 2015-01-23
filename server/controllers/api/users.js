@@ -8,7 +8,7 @@ router.get('/', function (req, res, next) {
     if (!req.headers['x-auth']) {
         return res.send(401)
     }
-    var auth = jwt.decode(req.header['x-auth'], config.secret)
+    var auth = jwt.decode(req.headers['x-auth'], config.secret)
     User.findOne({username: auth.username}, function (err, user) {
         if (err) { return next(err) }
         res.json(user)
