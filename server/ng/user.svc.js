@@ -10,7 +10,9 @@ angular.module('app')
             username: username,
             password: password
         }).then(function (val) {
+            console.log('This is token')
             svc.token = val.data
+            console.log(svc.token)
             return svc.getUser()
         })
     }
