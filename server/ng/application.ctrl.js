@@ -4,6 +4,6 @@ angular.module('app')
         $scope.currentUser = user
     })
     $scope.$on('register', function (_, user) {
-        $scope.registeruser = user
+        $scope.registerUser = user
     })
 })
