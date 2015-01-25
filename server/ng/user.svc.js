@@ -18,6 +18,8 @@ angular.module('app')
         return $http.post('/api/users', {
             username: username,
             password: password
+        }).then(function () {
+            return svc.getUser()
         })
     }
 })
