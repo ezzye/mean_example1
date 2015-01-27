@@ -4,4 +4,7 @@ exports.connect = function (server) {
     wss.on('connection', function (ws) {
         ws.send('hello')
     })
+    wss.on('message', function (message) {
+        ws.send(message)
+    })
 }
