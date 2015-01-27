@@ -5,6 +5,7 @@ exports.connect = function (server) {
         ws.send('hello')
     })
     wss.on('message', function (message) {
+        console.log('received: %s', message)
         ws.send(message)
     })
 }
