@@ -9,7 +9,7 @@ exports.connect = function (server) {
         console.log('client added %s', clients)
         ws.on('close', function () {
             _.remove(clients, ws)
-            console.console.log('client removed %s', clients)
+            console.log('client removed %s', clients)
         })
     })
 }
