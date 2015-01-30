@@ -9,7 +9,7 @@ angular.module('app')
     
     connection.onmessage = function (e) {
         console.log(e)
-        var payload = JSON.parse|(e.data)
+        var payload = JSON.parse(e.data)
         $rootScope.$broadcast('ws:' + payload.topic, payload.data)
     }
 })
