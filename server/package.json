@@ -17,6 +17,7 @@
     "ws": "^0.7.0"
   },
   "devDependencies": {
+    "mocha": "^2.1.0",
     "protractor": "^1.6.1"
   }
 }
