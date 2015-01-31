@@ -18,7 +18,7 @@ app.use('/api/users', require('./controllers/api/users'))
 
 var port = process.env.PORT || 3000
 
-var server = app.listen(3000, function () {
+var server = app.listen(port, function () {
     console.log('Server', process.pid, 'listening on', port)
 })
 websockets.connect(server)
