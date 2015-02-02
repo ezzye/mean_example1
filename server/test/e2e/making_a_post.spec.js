@@ -9,7 +9,7 @@ describe('making a post', function () {
         element(by.css('form .btn')).click()
 
         // submit a new post on the posts page
-        var post = 'my new psot'
+        var post = 'my new post'
         element(by.model('postBody')).sendKeys(post)
         element(by.css('form .btn')).click()
         
