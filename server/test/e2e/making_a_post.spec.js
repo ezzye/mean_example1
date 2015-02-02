@@ -14,5 +14,9 @@ describe('making a post', function () {
         element(by.css('form .btn')).click()
         
         // the user should now see their post as the first post on the page
+        element.all(by.css('ul.list-group li')).first().getText()
+        .then(function (text) {
+            console.log(text)
+        })
     })
 })
