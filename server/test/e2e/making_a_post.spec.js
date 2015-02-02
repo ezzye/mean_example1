@@ -13,7 +13,7 @@ describe('making a post', function () {
         var post = 'my new psot'
         element(by.model('postBody')).sendKeys(post)
         browser.pause()
-        elelment(by.css('form .btn')).click()
+        element(by.css('form .btn')).click()
         
         // the user should now see their post as the first post on the page
     })
