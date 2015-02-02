@@ -1,8 +1,11 @@
+var expect = require('chai').expect
+
 describe('making a post', function () {
-    it('logs in and creates a new post', function () {
+    it('creates an account and a new post', function () {
         browser.get('http://localhost:3001')
         // click 'login'
         element(by.css('nav .login')).click()
+        
         // fill out and submit login form
         element(by.model('username')).sendKeys('dickeyxxx')
         element(by.model('password')).sendKeys('pass')
@@ -16,7 +19,7 @@ describe('making a post', function () {
         // the user should now see their post as the first post on the page
         element.all(by.css('ul.list-group li')).first().getText()
         .then(function (text) {
-            console.log(text)
+            expect(text).to.contain(post)
         })
     })
 })
