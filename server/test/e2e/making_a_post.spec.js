@@ -12,7 +12,7 @@ describe('making a post', function () {
         element(by.css('form .btn')).click()
 
         // submit a new post on the posts page
-        var post = 'my new post'
+        var post = 'my new post' + Math.random ()
         element(by.model('postBody')).sendKeys(post)
         element(by.css('form .btn')).click()
         
