@@ -1,5 +1,5 @@
 angular.module('app')
-.run(function ($rootScope, $timeout) {
+.run(function ($rootScope, $timeout, $window) {
     (function connect() {
         var host
         if ($window.location.protocol === "https:") {
