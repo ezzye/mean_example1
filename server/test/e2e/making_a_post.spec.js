@@ -22,6 +22,5 @@ describe('making a post', function () {
         // the user should now see their post as the first post on the page
         expect(element.all(by.css('ul.list-group li')).first()
         .getText()).to.eventually.contain(post)
-        })
     })
 })
