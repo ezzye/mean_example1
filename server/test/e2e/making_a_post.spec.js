@@ -1,4 +1,7 @@
+var chai = require('chai')
+chai.use(require(chai-as-promised))
 var expect = require('chai').expect
+
 
 describe('making a post', function () {
     it('creates an account and a new post', function () {
@@ -17,9 +20,8 @@ describe('making a post', function () {
         element(by.css('form .btn')).click()
         
         // the user should now see their post as the first post on the page
-        element.all(by.css('ul.list-group li')).first().getText()
-        .then(function (text) {
-            expect(text).to.contain(post)
+        expect(element.all(by.css('ul.list-group li')).first()
+        .getText()).to.eventually.contain(post)
         })
     })
 })
