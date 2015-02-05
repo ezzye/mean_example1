@@ -21,6 +21,7 @@
     "chai": "^1.10.0",
     "chai-as-promised": "^4.1.1",
     "mocha": "^2.1.0",
-    "protractor": "^1.6.1"
+    "protractor": "^1.6.1",
+    "supertest": "^0.15.0"
   }
 }
